@@ -1,0 +1,121 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(170, 193, 241);
+    color: chocolate;
+}
+.wraper {
+    margin: 30px auto;
+    max-width: 1100px;
+    background-color: rgb(255, 226, 226);
+}
+.intro{
+    height: 200px;
+    width: 300px;
+    background-color: #fff;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+}
+.img {
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.menu{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+}
+.list{
+    list-style: none;
+}
+.list__link{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: cornsilk;
+}
+
+/* 2Х УРОВНЕВОЕ МЕНЮ */
+
+nav {
+    background: #413F3C;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+nav ul:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+nav a {
+    text-decoration: none;
+    display: block;
+    transition: .3s linear;
+}
+.topmenu > li {
+    float: left;
+    position: relative;
+    border-left: 1px solid black;
+}
+.topmenu > li:first-child {border-left: 0;}
+.topmenu > li > a {  
+    padding: 20px 30px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #FEFDFD;
+    letter-spacing: 2px;
+}
+.topmenu > li > a.active, 
+.submenu a:hover {color: #ddbe86;}
+.topmenu .fa, 
+.submenu .fa {
+    margin-left: 5px;
+    color: inherit;
+}
+.submenu {
+    position: absolute;
+    z-index: 5;
+    min-width: 200px;
+    background: white;
+    border-top: 1px solid #CBCBCC;
+    border-left: 1px solid #CBCBCC;
+    border-right: 1px solid #CBCBCC;
+    visibility: hidden;
+    opacity: 0; 
+    transform-origin: 0% 0%;
+    transform: rotateX(-90deg);
+    transition: .3s linear;  
+}
+.submenu li {position: relative;}
+.submenu li a {
+    color: #282828;
+    padding: 10px 20px;
+    font-size: 13px;
+    border-bottom: 1px solid #CBCBCC;
+}
+.submenu .submenu {
+    position: absolute;
+    left: 100%;
+    top: -1px;
+    transition: .3s linear;
+}
+nav li:hover > .submenu {
+    transform: rotateX(0deg);
+    visibility: visible;
+    opacity: 1;
+}
